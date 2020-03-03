@@ -58,6 +58,7 @@ bool isPalindrome(struct Node* head) {
   struct Node* slow_ptr = head;
   struct Node* fast_ptr = head;
   struct Node* mid_ptr = head;
+  struct Node* rsvd_ptr = NULL;
 
   if (head != NULL && head->next != NULL) {
     // Find the mid node...
@@ -68,6 +69,7 @@ bool isPalindrome(struct Node* head) {
     }
 
     if (fast_ptr != NULL) {
+      rsvd_ptr = mid_ptr;
       mid_ptr = mid_ptr->next;
     }
 
@@ -77,19 +79,24 @@ bool isPalindrome(struct Node* head) {
     // std::cout << "Mid ptr: " << mid_ptr->data << std::endl;
 
     if (head->next == tail && tail->next == head) {
+      if (head->data == tail->data) {
+        return true;
+      }
       return false;
     }
 
     // Compare head and tail incrementally
-    while (head != tail && (head->next != tail && tail->next != head)) {
+    while (head != tail) {
       if (head->data != tail->data) {
         return false;
+      }
+      if (head->next == tail) {
+        break;
       }
       head = head->next;
       tail = tail->next;
     }
   }
-
   return true;
 }
 
@@ -103,7 +110,7 @@ void printList(struct Node* ptr) {
 
 int main() {
   struct Node* head = NULL;
-  char str[] = "rer";
+  char str[] = "8648";
   int i;
 
   for (i = 0; str[i] != '\0'; i++) {
