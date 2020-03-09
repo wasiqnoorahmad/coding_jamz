@@ -12,44 +12,47 @@ void print_vector(vector_int &A) {
 }
 
 vector_int add_one_to_number(vector_int A) {
-  vector_int result(A);
+  // Walk until find first non-zero digit...
+  int start = 0;
+  int size = A.size();
+  int carry = 1;
+  int buf = 0;
 
-  int carry = 0;
-  int right = A.size() - 1;
-
-  result[right] = A[right] + 1;
-
-  for (right = right - 1; right >= 0; right--) {
-    carry = 0;
-    if (result[right + 1] > 9) {
-      result[right + 1] = 0;
-      carry = 1;
-    }
-    result[right] = A[right] + carry;
+  while (start < size - 1 && A[start] == 0) {
+    start++;
   }
 
-  while (result[0] == 0) {
-    for (int i = 1; i < result.size(); i++) {
-      result[i - 1] = result[i];
+  vector_int result(size - start);
+  int walk = size - 1;
+
+  while (walk >= start) {
+    result[walk - start] = A[walk] + carry;
+    carry = result[walk - start] / 10;
+    if (carry) {
+      result[walk - start] = 0;
     }
-    result.erase(result.end() - 1);
+    walk--;
   }
 
-  if (result[0] == 10) {
-    result[0] = 0;
-    result.resize(result.size() + 1);
-    for (int i = result.size() - 1; i >= 0; i--) {
-      result[i + 1] = result[i];
+  // Shift one right if ends with zero
+  if (result[0] == 0) {
+    result.resize(size + 1);
+    walk = result.size() - 1;
+    while (walk > 0) {
+      result[walk + 1] = result[walk];
+      walk--;
     }
     result[0] = 1;
+    result[1] = 0;
   }
+
   return result;
 }
 
 int main(int argc, char const *argv[]) {
-  vector_int A = {0, 0, 4, 4, 6, 0, 9, 6, 5, 1 };
-  vector_int result = add_one_to_number(A);
+  vector_int A = {9, 9, 9, 9, 9};
   print_vector(A);
+  vector_int result = add_one_to_number(A);
   print_vector(result);
   return 0;
 }
