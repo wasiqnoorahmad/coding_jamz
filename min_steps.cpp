@@ -16,26 +16,33 @@ int get_direct(int src, int dst) {
 int min_steps(int A[], int B[], int size) {
   int len = size;
 
+  // Consider yourself starting at the first point ...
   int curr_x = A[0];
   int curr_y = B[0];
   int steps = 0;
 
+  // Consider next destination starting from second point ...
   for (int i = 1; i < len; i++) {
     int next_x = A[i];
     int next_y = B[i];
 
-    // Check if are in straight line
+    // Check if starting position and destination are in straight line ...
     if (curr_x == next_x || curr_y == next_y) {
-      int r = cal_dist(curr_x, curr_y, next_x, next_y);
+      // Calculate the straight line distance ...
       steps += cal_dist(curr_x, curr_y, next_x, next_y);
       curr_x = next_x;
       curr_y = next_y;
-
     } else {
+      // Otherwise, calculate the diagonal distance to reach
+      // nearest point which lies in straight line to the destination ...
       int diff = std::min(abs(next_x - curr_x), abs(next_y - curr_y));
       steps += abs(diff);
+      // Update current position to nearest point lying 
+      // in straight line to destination...
       curr_x += get_direct(curr_x, next_x) * diff;
       curr_y += get_direct(curr_y, next_y) * diff;
+      
+      // Calculate the straight line distance ...
       steps += cal_dist(curr_x, curr_y, next_x, next_y);
       curr_x = next_x;
       curr_y = next_y;
