@@ -23,29 +23,29 @@ void print_list(ListNode *root) {
 ListNode *merge(ListNode *l1, ListNode *l2) {
   if (l1 == NULL || l2 == NULL) return l1 == NULL ? l2 : l1;
 
-  ListNode *left = l1, *right = l2, *prev = NULL;
+  ListNode *left = l1, *right = l2;
+  int tmp;
 
   while (left != NULL && right != NULL) {
-    if (right != NULL && left->val < right->val) {
-      prev = left;
+    if (left->val < right->val) {
       left = left->next;
-    } else if (right != NULL && left->val > right->val) {
-      int tmp = left->val;
+    } else if (left->val > right->val) {
+      tmp = left->val;
       left->val = right->val;
       left->next = new ListNode(tmp, left->next);
-      right = right->next;
-      prev = left;
       left = left->next;
+      right = right->next;
     } else {
       left->next = new ListNode(left->val, left->next);
-      prev = left->next;
       left = left->next->next;
       right = right->next;
     }
   }
 
   if (right) {
-    prev->next = right;
+    left = l1;
+    while (left->next != NULL) left = left->next;
+    left->next = right;
   }
   return l1;
 }
@@ -56,12 +56,15 @@ int main(int argc, char const *argv[]) {
   l1->next = new ListNode(2);
   l1->next->next = new ListNode(4);
 
+  l1->next->next->next = new ListNode(5);
+  l1->next->next->next->next = new ListNode(6);
+
   /* First list */
   ListNode *l2 = new ListNode(1);
   l2->next = new ListNode(3);
   l2->next->next = new ListNode(4);
-  l2->next->next->next = new ListNode(5);
-  l2->next->next->next->next = new ListNode(6);
+  // l2->next->next->next = new ListNode(5);
+  // l2->next->next->next->next = new ListNode(6);
 
   ListNode *merged = merge(l1, l2);
   print_list(merged);
