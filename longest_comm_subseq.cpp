@@ -17,13 +17,6 @@ int long_sub_seq(string src, string dst) {
         dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]);
     }
   }
-
-  for (int i = 0; i <= dst.length(); i++) {
-    for (int j = 0; j <= src.length(); j++) {
-      printf("%d ", dp[i][j]);
-    }
-    printf("\n");
-  }
   return dp[dst.length()][src.length()];
 }
 
