@@ -11,6 +11,16 @@ typedef struct ListNode {
   ListNode(int x, ListNode *next) : val(x), next(next) {}
 } ListNode;
 
+struct TreeNode {
+  int val;
+  TreeNode *left;
+  TreeNode *right;
+  TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  TreeNode(int x, TreeNode *left, TreeNode *right)
+      : val(x), left(left), right(right) {}
+};
+
 void p_vector(std::vector<int> &A);
 void insert_node(ListNode *head, int val);
 void p_list(ListNode *head);
