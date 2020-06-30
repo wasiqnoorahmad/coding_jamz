@@ -7,15 +7,18 @@ using namespace std;
 const bool is_reachable(string src, string dst) {
   int walk = 0, diff = 0;
   while (walk != src.length()) {
-    if (src[walk] != dst[walk]) diff++;
+    if (src[walk] != dst[walk])
+      diff++;
     walk++;
   }
   return diff == 1;
 }
 
 int solve(string src, string target, vector<string> &dict) {
-  if (src == target) return 1;
-  if (is_reachable(src, target)) return 2;
+  if (src == target)
+    return 1;
+  if (is_reachable(src, target))
+    return 2;
 
   /* Here goes the BFS */
   vector<bool> visited(dict.size(), false);
@@ -26,7 +29,8 @@ int solve(string src, string target, vector<string> &dict) {
     auto curr = track.front();
     track.pop();
 
-    if (is_reachable(curr.second, target)) return curr.first + 1;
+    if (is_reachable(curr.second, target))
+      return curr.first + 1;
 
     for (int walk = 0; walk < dict.size(); walk++) {
       if (!visited[walk] && is_reachable(curr.second, dict[walk])) {
@@ -42,48 +46,5 @@ int solve(string src, string target, vector<string> &dict) {
 int main(int argc, char const *argv[]) {
   vector<string> dict = {"hot", "dot", "dog", "lot", "log"};
   printf("%d\n", solve("hit", "cog", dict));
-
-  // vector<string> dict = {"ymann", "yycrj", "oecij", "ymcnj", "yzcrj",
-  // "yycij",
-  //                        "xecij", "yecij", "ymanj", "yzcnj", "ymain"};
-  // printf("%d\n", solve("ymain", "oecij", dict));  // 10
-
-  // vector<string> dict = {
-  //     "mzqwkyfqdfkkhdtrwmxm", "mlqdryzxdwukhdtpqqkv", "pyudlolywuuiexfdqevw",
-  //     "mzqwrylbdfkkhdtfbqxm", "yyudloxxvwumevoyqqyw", "yyqdfozevwumedoyqqyk",
-  //     "nzqwkyfqdfkkhdtywmkm", "yyqdfozevwumedowqqyv", "uhoddciyreuihqftqvjl",
-  //     "mzqwryzbdfkkhdtfbqxm", "yyudfozxvwumevoyqqyk", "pyndlciyuuuieqftqvjl",
-  //     "mzqdryzxdwkkhdtpqqxm", "ylqduozxvwumedowqqyv", "mzqwkyfqdfkkhdtfwqxm",
-  //     "pyndlciyuuuieqfhqvjl", "nlqduyzxvwumedopqqqv", "pyudlolywuuiexfhqevw",
-  //     "uhojdciyrnughwfiqvil", "mzqwkyfqdfkkhdtrwqxm", "yyqdfozevwumevoyqqyk",
-  //     "pyodlciyuruiyqftqvjl", "pyudlciyuuuiexfhqevw", "mzqwrylqdfkkhdtfbqxm",
-  //     "nlqdryzxdwukhdtpqqkv", "uhoddciyreughwftqvil", "nlqduozxvwumedowqqyv",
-  //     "pyudlclywuuiexfhqevw", "nlqduyzxdwukedopqqqv", "hzqxcydbdxkkcdtzwgkm",
-  //     "pyudlciyuuuieffhqevw", "pyudlolyvwuiexodqevw", "uhoddciyreughwftqvjl",
-  //     "nzqwcyfbdxkkhdtzwmkm", "pyodlciyuuuiyqftqvjl", "nlqduyzxdwukhdtpqqkv",
-  //     "fyudloxyvwumevoyqqyw", "uhojdciyreughwfiqvil", "mzqwkyfqdfkkhdtfbqxm",
-  //     "nzqwcyfqdfkkhdtzwmkm", "pyudlciyuuuiebfhqvjl", "pyoddciyaeuihqftqvjl",
-  //     "yyqdfozpvwumedowqqyv", "nzqwcydbdxkkhdtzwmkm", "mzqwryzbdwkkhdtpbqxm",
-  //     "pyudloxyvwuievodqeyw", "fyudloxyvwumevodqqyw", "pyodlciyuuuieqftqvjl",
-  //     "yyudfozevwumevoyqqyk", "yyqdfozevwumedowqqyk", "hzqwcydbdxkkcdtzwgkm",
-  //     "mzqwkyfqdfkkhdtywmxm", "nzqwcydbdxkkcdtzwgkm", "nlqdubzxvwumedopqqyv",
-  //     "pyudlolyvuuiexfdqevw", "yyudloxyvwumevoyqqyw", "yyudlozxvwumevoyqqyw",
-  //     "pyudlciyuuuiebfhqvjw", "mzqwkylqdfkkhdtfbqxm", "mkqdryzxdwukhdtpqqkv",
-  //     "hzqxcydbdxkbcdtzwgkm", "nzqwqyfqdfkkhdtzwmkm", "mzqwryzzdwkkhdtpqqxm",
-  //     "fyudloxyvwumevodqeyw", "mzqdryzzdwkkhdtpqqxm", "pyudlciyuuuiebfhqevw",
-  //     "pyodlciyueuiyqftqvjl", "nlqduyzxvwukedopqqqv", "nlqdubzxvwumedowqqyv",
-  //     "mzqwkyfqdfkkhdtywmkm", "phoddciyreuihqftqvjl", "ylqduozpvwumedowqqyv",
-  //     "pyoddciyaeuiyqftqvjl", "nlqduyzxdwukhdtpqqqv", "uhoddciyreuihwftqvjl",
-  //     "yyudlozxvwumevoyqqyk", "nlqduyzxdwukhdopqqqv", "pyudlciywuuiexfhqevw",
-  //     "pyudloxyvwuiexodqeyw", "mzqwryzbdfkkhdtpbqxm", "nzqwkyfqdfkkhdtzwmkm",
-  //     "nzqwcyfbdfkkhdtzwmkm", "meqdryzxdwukhdtpqqkm", "mzqwryzbdwkkhdtpqqxm",
-  //     "nzqwcydbdxkkcdtzwmkm", "pyudloxyvwuiexodqevw", "fyudloxyvwuievodqeyw",
-  //     "pyudlolyvuuiexodqevw", "mzqdryzxdwukhdtpqqxm", "pyudlciyuuuieqfhqvjl",
-  //     "meqdryzxdwukhdtpqqkv", "uhoddciyreughwfiqvil", "pyodlciyaeuiyqftqvjl",
-  //     "nlqdubzxvwumedopqqqv", "meqdryzxdwukhdtpqqxm", "yyqduozpvwumedowqqyv",
-  //     "pyudlciyuuuiebfhqejw", "phoddciyaeuihqftqvjl"};
-  // printf("%d\n",
-  //        solve("hzqxcydbdxkbcdtzwgkm", "uhojdciyrnughwfiqvil", dict));  // 94
-
   return 0;
 }

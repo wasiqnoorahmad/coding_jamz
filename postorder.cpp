@@ -3,15 +3,15 @@
 
 struct TreeNode {
   int val;
-  TreeNode* left;
-  TreeNode* right;
+  TreeNode *left;
+  TreeNode *right;
   TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
 
 /* Without recursion using two stacks */
-void postorder2(TreeNode* A) {
-  std::stack<TreeNode*> s1;
-  std::stack<TreeNode*> s2;
+void postorder2(TreeNode *A) {
+  std::stack<TreeNode *> s1;
+  std::stack<TreeNode *> s2;
 
   s1.push(A);
 
@@ -20,8 +20,10 @@ void postorder2(TreeNode* A) {
     s1.pop();
     s2.push(node);
 
-    if (node->left) s1.push(node->left);
-    if (node->right) s1.push(node->right);
+    if (node->left)
+      s1.push(node->left);
+    if (node->right)
+      s1.push(node->right);
   }
 
   // Print s2 ..
@@ -33,13 +35,14 @@ void postorder2(TreeNode* A) {
 }
 
 /* Without recursion using one stacks */
-void postorder(TreeNode* A) {
-  std::stack<TreeNode*> track;
-  TreeNode* curr = A;
+void postorder(TreeNode *A) {
+  std::stack<TreeNode *> track;
+  TreeNode *curr = A;
 
   while (curr != NULL || !track.empty()) {
     while (curr != NULL) {
-      if (curr->right) track.push(curr->right);
+      if (curr->right)
+        track.push(curr->right);
       track.push(curr);
       curr = curr->left;
     }
@@ -58,14 +61,14 @@ void postorder(TreeNode* A) {
   }
 }
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
   // TreeNode* root = new TreeNode(1);
   // root->left = new TreeNode(12);
   // root->right = new TreeNode(9);
   // root->left->left = new TreeNode(5);
   // root->left->right = new TreeNode(6);
 
-  TreeNode* root = new TreeNode(1);
+  TreeNode *root = new TreeNode(1);
   root->left = new TreeNode(2);
   root->right = new TreeNode(3);
   root->left->left = new TreeNode(4);

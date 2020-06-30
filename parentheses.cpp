@@ -14,7 +14,8 @@
 typedef std::stack<std::pair<std::string, int>> stack_t;
 
 void parentheses(std::string src, int start, int end, int open, int close) {
-  if (start == end && open != close) return;
+  if (start == end && open != close)
+    return;
   if (start == end) {
     std::cout << src << std::endl;
     return;
@@ -42,7 +43,8 @@ void _parentheses(int n) {
     auto src = bstack.top();
     bstack.pop();
 
-    if (src.second < 0 || src.second > n) continue;
+    if (src.second < 0 || src.second > n)
+      continue;
 
     if (src.first.length() == 2 * n) {
       if (src.second == 0) {
@@ -57,7 +59,7 @@ void _parentheses(int n) {
 }
 
 int main(int argc, char const *argv[]) {
-  int n = 2;
+  int n = 4;
   // std::string src;
   // src.resize(2 * n);
   // parantheses(src, 0, (2 * n), 0, 0);
