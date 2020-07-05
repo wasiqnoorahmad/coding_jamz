@@ -7,11 +7,13 @@
 
 void solution(int dist[]) {
   printf("Vertex \t\t Distance from Source\n");
-  for (int i = 0; i < V; i++) printf("%d \t\t %d\n", i, dist[i]);
+  for (int i = 0; i < V; i++)
+    printf("%d \t\t %d\n", i, dist[i]);
 }
 
 void initialize(int dist[], bool visited[], int src) {
-  for (int i = 0; i < V; i++) dist[i] = INT_MAX, visited[i] = false;
+  for (int i = 0; i < V; i++)
+    dist[i] = INT_MAX, visited[i] = false;
   dist[src] = 0;
 }
 

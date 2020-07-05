@@ -8,8 +8,7 @@ int min_initial_points(vector<vector<int>> &grid) {
 
   dp[m - 1][n - 1] = grid[m - 1][n - 1] > 0 ? 1 : abs(grid[m - 1][n - 1]) + 1;
 
-  // Fill last row and last column as base to fill
-  // entire table
+  // Fill last row and last column as base to fill entire table
   for (int i = m - 2; i >= 0; i--)
     dp[i][n - 1] = max(dp[i + 1][n - 1] - grid[i][n - 1], 1);
   for (int j = n - 2; j >= 0; j--)
