@@ -6,12 +6,14 @@
 using namespace std;
 
 int my_atoi(string str) {
-  if (!str.length()) return 0;
+  if (!str.length())
+    return 0;
 
   int walk = 0;
   bool is_negative = false;
 
-  while (walk < str.length() && str[walk] == ' ') walk++;
+  while (walk < str.length() && str[walk] == ' ')
+    walk++;
 
   if (walk == str.length() || str[walk] < '0' || str[walk] > '9') {
     if (str[walk] == '+')
@@ -24,7 +26,8 @@ int my_atoi(string str) {
 
   long num = 0;
   while (walk < str.length()) {
-    if (str[walk] < '0' || str[walk] > '9') break;
+    if (str[walk] < '0' || str[walk] > '9')
+      break;
 
     num *= 10;
     num += (str[walk] - '0');
@@ -35,7 +38,8 @@ int my_atoi(string str) {
       return INT_MAX;
     walk++;
   }
-  if (is_negative) num *= -1;
+  if (is_negative)
+    num *= -1;
   return num;
 }
 

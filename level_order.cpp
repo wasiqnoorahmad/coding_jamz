@@ -5,17 +5,17 @@
 
 struct TreeNode {
   int val;
-  TreeNode* left;
-  TreeNode* right;
+  TreeNode *left;
+  TreeNode *right;
   TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
 
 typedef std::vector<std::vector<int>> dvector_t;
 
 /* Without recursion */
-dvector_t level_order(TreeNode* A) {
+dvector_t level_order(TreeNode *A) {
   dvector_t result;
-  std::queue<TreeNode*> track;
+  std::queue<TreeNode *> track;
   track.push(A);
   track.push(NULL);
 
@@ -27,18 +27,21 @@ dvector_t level_order(TreeNode* A) {
       track.pop();
       lvl.push_back(curr->val);
 
-      if (curr->left) track.push(curr->left);
-      if (curr->right) track.push(curr->right);
+      if (curr->left)
+        track.push(curr->left);
+      if (curr->right)
+        track.push(curr->right);
     }
     track.pop();
-    if (!track.empty()) track.push(NULL);
+    if (!track.empty())
+      track.push(NULL);
     result.push_back(lvl);
   }
   return result;
 }
 
-int main(int argc, char const* argv[]) {
-  TreeNode* root = new TreeNode(1);
+int main(int argc, char const *argv[]) {
+  TreeNode *root = new TreeNode(1);
   root->left = new TreeNode(2);
   root->right = new TreeNode(3);
   root->left->left = new TreeNode(4);
@@ -50,7 +53,7 @@ int main(int argc, char const* argv[]) {
 
   dvector_t result = level_order(root);
 
-  for (std::vector<int>& lvl : result) {
+  for (std::vector<int> &lvl : result) {
     p_vector(lvl);
   }
   return 0;

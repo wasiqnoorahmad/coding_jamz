@@ -49,7 +49,7 @@ int main(int argc, char const *argv[]) {
   // std::vector<int> res = flip(std::string("1101010001"));  // 3,9
   // std::vector<int> res = flip(std::string("010")); // 1,1
   // std::vector<int> res = flip(std::string("0111000100010"));  // 5,11
-  std::vector<int> res = flip(std::string("11110000000"));    // 5,11
+  std::vector<int> res = flip(std::string("11110000000")); // 5,11
   print_vector(res);
   return 0;
 }

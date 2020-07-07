@@ -3,7 +3,8 @@
 using namespace std;
 
 string add_strings(string num1, string num2) {
-  if (num1.length() < num2.length()) swap(num1, num2);
+  if (num1.length() < num2.length())
+    swap(num1, num2);
 
   int left = num1.length() - 1, right = num2.length() - 1, sum, carry = 0;
   string result;
@@ -22,7 +23,8 @@ string add_strings(string num1, string num2) {
     left--;
   }
 
-  if (carry) result = (char)(carry + '0') + result;
+  if (carry)
+    result = (char)(carry + '0') + result;
   return result;
 }
 

@@ -9,8 +9,10 @@ int cal_dist(int x1, int y1, int x2, int y2) {
 }
 
 int get_direct(int src, int dst) {
-  if (dst > src) return 1;
-  if (dst < src) return -1;
+  if (dst > src)
+    return 1;
+  if (dst < src)
+    return -1;
 }
 
 int min_steps(int A[], int B[], int size) {
@@ -37,11 +39,11 @@ int min_steps(int A[], int B[], int size) {
       // nearest point which lies in straight line to the destination ...
       int diff = std::min(abs(next_x - curr_x), abs(next_y - curr_y));
       steps += abs(diff);
-      // Update current position to nearest point lying 
+      // Update current position to nearest point lying
       // in straight line to destination...
       curr_x += get_direct(curr_x, next_x) * diff;
       curr_y += get_direct(curr_y, next_y) * diff;
-      
+
       // Calculate the straight line distance ...
       steps += cal_dist(curr_x, curr_y, next_x, next_y);
       curr_x = next_x;

@@ -3,7 +3,8 @@
 #include <iostream>
 
 int pow(int x, int n, int d) {
-  if (n == 0) return (1 % d);
+  if (n == 0)
+    return (1 % d);
   long long prod = 1;
   x = x % d;
 
@@ -22,7 +23,7 @@ int main(int argc, char const *argv[]) {
   // int p = pow(71045970, 41535484, 64735492);  // 20805472
 
   // int p = pow(10, 0, 1);  // 0
-  int p = pow(-1, 1, 20);  // 1
+  int p = pow(-1, 1, 20); // 1
   // int p = pow(10, 0, 3);  // 1
   // int p = pow(0, 0, 1); // 0
 

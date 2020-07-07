@@ -17,7 +17,7 @@ Total number of squares = 10 + 4 + 1 = 15.
 #include <bits/stdc++.h>
 using namespace std;
 
-int count_squares(vector<vector<int>>& matrix) {
+int count_squares(vector<vector<int>> &matrix) {
   int count = 0;
 
   for (int i = 0; i < matrix.size(); i++) {
@@ -33,7 +33,7 @@ int count_squares(vector<vector<int>>& matrix) {
   return count;
 }
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
   vector<vector<int>> matrix = {
       {0, 1},
       {1, 1},

@@ -14,24 +14,27 @@ Output: 2->3->6->7->1->5->4->NULL
 #include "common.hpp"
 using namespace std;
 
-ListNode* odd_even_list(ListNode* head) {
-  if (head == NULL || head->next == NULL) return head;
+ListNode *odd_even_list(ListNode *head) {
+  if (head == NULL || head->next == NULL)
+    return head;
 
   ListNode *odd = head, *even = head->next, *even_head = even, *odd_tail = NULL;
 
   while (odd != NULL && even != NULL) {
     odd->next = even->next, odd_tail = odd, odd = odd->next;
-    if (odd) even->next = odd->next, even = even->next;
+    if (odd)
+      even->next = odd->next, even = even->next;
   }
 
-  if (odd) odd_tail = odd_tail->next;
+  if (odd)
+    odd_tail = odd_tail->next;
   odd_tail->next = even_head;
 
   return head;
 }
 
-int main(int argc, char const* argv[]) {
-  ListNode* head = new ListNode(2);
+int main(int argc, char const *argv[]) {
+  ListNode *head = new ListNode(2);
   insert_node(head, 1);
   insert_node(head, 3);
   insert_node(head, 5);
@@ -41,7 +44,7 @@ int main(int argc, char const* argv[]) {
   // insert_node(head, 8);
   // insert_node(head, 9);
 
-  ListNode* ans = odd_even_list(head);
+  ListNode *ans = odd_even_list(head);
   p_list(ans);
   return 0;
 }

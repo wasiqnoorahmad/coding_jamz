@@ -24,20 +24,20 @@ rotate 2 steps to the right: [3,99,-1,-100]
 #include "common.hpp"
 using namespace std;
 
-void reverse(vector<int>& nums, int start, int end) {
+void reverse(vector<int> &nums, int start, int end) {
   while (start < end) {
     swap(nums[start++], nums[end--]);
   }
 }
 
-void rotate(vector<int>& nums, int k) {
+void rotate(vector<int> &nums, int k) {
   k = k % nums.size();
   reverse(nums, 0, nums.size() - 1);
   reverse(nums, 0, k - 1);
   reverse(nums, k, nums.size() - 1);
 }
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
   // int k = 2;
   // vector<int> nums = {-1, -100, 3, 99};
   // // {3, 99, -1, -100}

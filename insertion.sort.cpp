@@ -2,8 +2,9 @@
 
 #include "common.hpp"
 
-void insert_sort(std::vector<int>& A) {
-  if (A.size() <= 1) return;
+void insert_sort(std::vector<int> &A) {
+  if (A.size() <= 1)
+    return;
 
   int start = 0, walk = 1, tmp_val = 0;
 
@@ -21,7 +22,7 @@ void insert_sort(std::vector<int>& A) {
   }
 }
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
   std::vector<int> A = {-1, 3, 5, -9, 5};
   p_vector(A);
   insert_sort(A);

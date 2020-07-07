@@ -9,11 +9,11 @@ struct Edge {
 
 struct Graph {
   int V, E;
-  struct Edge* edge;
+  struct Edge *edge;
 };
 
-struct Graph* create_graph(int V, int E) {
-  struct Graph* graph = new Graph;
+struct Graph *create_graph(int V, int E) {
+  struct Graph *graph = new Graph;
   graph->V = V;
   graph->E = E;
   graph->edge = new Edge[E];
@@ -22,15 +22,17 @@ struct Graph* create_graph(int V, int E) {
 
 void print_arr(int dist[], int n) {
   printf("Shortest Distance from Src\n\n");
-  for (int i = 0; i < n; ++i) printf("%d \t\t %d\n", i, dist[i]);
+  for (int i = 0; i < n; ++i)
+    printf("%d \t\t %d\n", i, dist[i]);
 }
 
-void initialize(int dist[], struct Graph* graph, int src) {
-  for (int i = 0; i < graph->V; i++) dist[i] = INT_MAX;
+void initialize(int dist[], struct Graph *graph, int src) {
+  for (int i = 0; i < graph->V; i++)
+    dist[i] = INT_MAX;
   dist[src] = 0;
 }
 
-void bellman_ford(struct Graph* graph, int src) {
+void bellman_ford(struct Graph *graph, int src) {
   int V = graph->V, E = graph->E, dist[V];
   initialize(dist, graph, src);
 
@@ -67,7 +69,7 @@ void bellman_ford(struct Graph* graph, int src) {
 int main() {
   int V = 5;
   int E = 8;
-  struct Graph* graph = create_graph(V, E);
+  struct Graph *graph = create_graph(V, E);
 
   // add edge 0-1 (or A-B in above figure)
   graph->edge[0].src = 0;

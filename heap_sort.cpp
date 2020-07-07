@@ -7,8 +7,10 @@
 void heapify(std::vector<int> &arr, int size, int index) {
   int left = (2 * index), right = left + 1, max = index;
 
-  if (left < size && arr[left] > arr[max]) max = left;
-  if (right < size && arr[right] > arr[max]) max = right;
+  if (left < size && arr[left] > arr[max])
+    max = left;
+  if (right < size && arr[right] > arr[max])
+    max = right;
 
   if (max != index) {
     std::swap(arr[index], arr[max]);

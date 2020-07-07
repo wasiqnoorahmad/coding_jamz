@@ -21,9 +21,10 @@ Output: [1,2,4,8]
 #include "common.hpp"
 using namespace std;
 
-vector<int> largest_divisible_subset(vector<int>& nums) {
+vector<int> largest_divisible_subset(vector<int> &nums) {
   int n = nums.size();
-  if (n <= 1) return nums;
+  if (n <= 1)
+    return nums;
   sort(nums.begin(), nums.end());
 
   // vector<int> sizes(n, 1);
@@ -58,7 +59,7 @@ vector<int> largest_divisible_subset(vector<int>& nums) {
   return result;
 }
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
   vector<int> nums = {1, 2, 3};
   vector<int> ans = largest_divisible_subset(nums);
   p_vector(ans);

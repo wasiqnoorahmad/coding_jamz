@@ -53,18 +53,18 @@ string to_roman(int num) {
       }
     } else if (num >= 1) {
       switch (num) {
-        case 1:
-          roman += "I";
-          break;
-        case 2:
-          roman += "II";
-          break;
-        case 3:
-          roman += "III";
-          break;
-        case 4:
-          roman += "IV";
-          break;
+      case 1:
+        roman += "I";
+        break;
+      case 2:
+        roman += "II";
+        break;
+      case 3:
+        roman += "III";
+        break;
+      case 4:
+        roman += "IV";
+        break;
       }
       num = 0;
     }

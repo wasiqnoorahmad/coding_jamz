@@ -4,10 +4,12 @@ using namespace std;
 
 int fab(int n) {
   /* Safety Check */
-  if (n < 0) return -1;
+  if (n < 0)
+    return -1;
 
   /* Base Case */
-  if (n == 1 || n == 2) return n - 1;
+  if (n == 1 || n == 2)
+    return n - 1;
 
   /* Last and Second Last */
   int last = 1, second_last = 0, f;

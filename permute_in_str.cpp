@@ -25,13 +25,15 @@ bool check_inclusion(string s1, string s2) {
   for (int i = 0; i < s1.length(); i++)
     s1_count[s1[i] - 'a']++, s2_count[s2[i] - 'a']++;
 
-  if (s1_count == s2_count) return true;
+  if (s1_count == s2_count)
+    return true;
 
   for (int i = s1.length(); i < s2.length(); i++) {
     s2_count[s2[i] - 'a']++;
     s2_count[s2[i - s1.length()] - 'a']--;
 
-    if (s1_count == s2_count) return true;
+    if (s1_count == s2_count)
+      return true;
   }
   return false;
 }

@@ -21,21 +21,23 @@ Output:
 #include "common.hpp"
 using namespace std;
 
-bool compare(vector<int>& A, vector<int>& B) {
+bool compare(vector<int> &A, vector<int> &B) {
   return (A[0] > B[0] || (A[0] == B[0] && A[1] < B[1]));
 }
 
-vector<vector<int>> reconstruct_queue(vector<vector<int>>& people) {
+vector<vector<int>> reconstruct_queue(vector<vector<int>> &people) {
   sort(people.begin(), people.end(), compare);
   vector<vector<int>> result;
-  for (vector<int>& v : people) result.insert(result.begin() + v[1], v);
+  for (vector<int> &v : people)
+    result.insert(result.begin() + v[1], v);
   return result;
 }
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
   vector<vector<int>> people = {{7, 0}, {4, 4}, {7, 1}, {5, 0}, {6, 1}, {5, 2}};
   vector<vector<int>> result = reconstruct_queue(people);
-  for (vector<int>& v : result) p_vector(v);
+  for (vector<int> &v : result)
+    p_vector(v);
 
   return 0;
 }

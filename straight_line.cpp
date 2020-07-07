@@ -2,11 +2,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool is_straight_line(vector<vector<int>>& points) {
-  if (points.size() <= 2) return true;
+bool is_straight_line(vector<vector<int>> &points) {
+  if (points.size() <= 2)
+    return true;
 
   float grad = INT_MAX, curr_grad = INT_MAX;
-  vector<int>&p1 = points[0], &p2 = points[1];
+  vector<int> &p1 = points[0], &p2 = points[1];
 
   if (p2[0] - p1[0] != 0)
     grad = (float)(p2[1] - p1[1]) / (float)(p2[0] - p1[0]);
@@ -22,13 +23,14 @@ bool is_straight_line(vector<vector<int>>& points) {
 
     printf("Curr Grad = %d\n", grad);
 
-    if (curr_grad != grad) return false;
+    if (curr_grad != grad)
+      return false;
   }
 
   return true;
 }
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
   vector<vector<int>> points = {{-4, -3}, {1, 0}, {3, -1}, {0, -1}, {-5, 2}};
   if (is_straight_line(points))
     printf("True\n");

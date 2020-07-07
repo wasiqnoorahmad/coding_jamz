@@ -4,7 +4,8 @@
 using namespace std;
 
 int stairs(int n) {
-  if (n < 3) return n;
+  if (n < 3)
+    return n;
 
   int memo[n + 1];
   memo[1] = 1, memo[2] = 2;

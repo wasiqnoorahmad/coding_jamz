@@ -45,7 +45,8 @@ bool dfs(int u, vector<vector<int>> &graph, vector<int> &visited) {
 bool can_finish(int num, vector<vector<int>> &prerequisites) {
   vector<vector<int>> graph(num);
 
-  for (auto pre : prerequisites) graph[pre[0]].push_back(pre[1]);
+  for (auto pre : prerequisites)
+    graph[pre[0]].push_back(pre[1]);
 
   vector<int> visited(num, -1);
 

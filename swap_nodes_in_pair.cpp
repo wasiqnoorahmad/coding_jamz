@@ -20,8 +20,10 @@ void print_list(ListNode *head) {
 }
 
 ListNode *swap_pairs(ListNode *head) {
-  if (head == NULL) return NULL;
-  if (head->next == NULL) return head;
+  if (head == NULL)
+    return NULL;
+  if (head->next == NULL)
+    return head;
 
   ListNode *left = head, *right = head->next, *tail, *new_head = NULL,
            *prev = NULL;
@@ -31,9 +33,11 @@ ListNode *swap_pairs(ListNode *head) {
 
     left->next = tail;
     right->next = left;
-    if (prev) prev->next = right;
+    if (prev)
+      prev->next = right;
 
-    if (!new_head) new_head = right;
+    if (!new_head)
+      new_head = right;
 
     if (tail) {
       prev = left, left = tail, right = tail->next;

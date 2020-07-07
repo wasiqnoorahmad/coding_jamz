@@ -6,15 +6,18 @@
 using namespace std;
 
 string multiply(string num1, string num2) {
-  if (num2.length() > num1.length()) swap(num1, num2);
-  if (num1 == "0" || num2 == "0") return string("0");
+  if (num2.length() > num1.length())
+    swap(num1, num2);
+  if (num1 == "0" || num2 == "0")
+    return string("0");
 
   int nb_rows = 1 + max(num1.length(), num2.length()),
       nb_cols = num1.length() + num2.length(), grid[nb_rows][nb_cols];
 
   /* Fill with zeros */
   for (int i = 0; i < nb_rows; i++)
-    for (int j = 0; j < nb_cols; j++) grid[i][j] = 0;
+    for (int j = 0; j < nb_cols; j++)
+      grid[i][j] = 0;
 
   int prod = 1, carry = 0, foot = 1, curr_row = 0, curr_col = 0;
 
@@ -59,8 +62,10 @@ string multiply(string num1, string num2) {
     result = val + result;
     carry = sum / 10;
   }
-  if (carry) result = (char)(carry + '0') + result;
-  if (result[0] == '0') result = result.substr(1);
+  if (carry)
+    result = (char)(carry + '0') + result;
+  if (result[0] == '0')
+    result = result.substr(1);
   return result;
 }
 

@@ -5,7 +5,7 @@ using namespace std;
 #define MAX_CHAR 26
 
 class Trio {
- private:
+private:
   typedef struct Node {
     Node *alphabets[MAX_CHAR];
     bool is_end;
@@ -22,7 +22,7 @@ class Trio {
     return node;
   }
 
- public:
+public:
   Trio() { root = get_node(); }
 
   /** Inserts a word into the trie. */
@@ -33,7 +33,8 @@ class Trio {
     for (int i = 0; i < word.length(); i++) {
       index = word[i] - 'a';
 
-      if (!walk->alphabets[index]) walk->alphabets[index] = get_node();
+      if (!walk->alphabets[index])
+        walk->alphabets[index] = get_node();
 
       walk = walk->alphabets[index];
     }
@@ -49,7 +50,8 @@ class Trio {
     for (int i = 0; i < word.length(); i++) {
       index = word[i] - 'a';
 
-      if (!walk->alphabets[index]) return false;
+      if (!walk->alphabets[index])
+        return false;
 
       walk = walk->alphabets[index];
     }
@@ -66,7 +68,8 @@ class Trio {
     for (int i = 0; i < prefix.length(); i++) {
       index = prefix[i] - 'a';
 
-      if (!walk->alphabets[index]) return false;
+      if (!walk->alphabets[index])
+        return false;
 
       walk = walk->alphabets[index];
     }
@@ -79,10 +82,10 @@ int main(int argc, char const *argv[]) {
   Trio trio = Trio();
 
   trio.insert("apple");
-  cout << trio.search("apple") << endl;     // returns true
-  cout << trio.search("app") << endl;       // returns false
-  cout << trio.starts_with("app") << endl;  // returns true
+  cout << trio.search("apple") << endl;    // returns true
+  cout << trio.search("app") << endl;      // returns false
+  cout << trio.starts_with("app") << endl; // returns true
   trio.insert("app");
-  cout << trio.search("app") << endl;  // returns true
+  cout << trio.search("app") << endl; // returns true
   return 0;
 }

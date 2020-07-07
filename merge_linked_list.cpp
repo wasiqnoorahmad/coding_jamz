@@ -21,7 +21,8 @@ void print_list(ListNode *root) {
 }
 
 ListNode *merge(ListNode *l1, ListNode *l2) {
-  if (l1 == NULL || l2 == NULL) return l1 == NULL ? l2 : l1;
+  if (l1 == NULL || l2 == NULL)
+    return l1 == NULL ? l2 : l1;
 
   ListNode *left = l1, *right = l2;
   int tmp;
@@ -44,7 +45,8 @@ ListNode *merge(ListNode *l1, ListNode *l2) {
 
   if (right) {
     left = l1;
-    while (left->next != NULL) left = left->next;
+    while (left->next != NULL)
+      left = left->next;
     left->next = right;
   }
   return l1;

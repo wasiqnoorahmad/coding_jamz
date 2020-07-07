@@ -5,7 +5,7 @@
 using namespace std;
 
 vector<int> k_mins(int K, vector<int> &nums) {
-  priority_queue<int, vector<int>, greater<int> > pq;
+  priority_queue<int, vector<int>, greater<int>> pq;
 
   for (int i = 0; i < nums.size(); i++) {
     pq.push(nums[i]);

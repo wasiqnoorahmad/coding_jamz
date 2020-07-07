@@ -36,11 +36,13 @@ int town_judge(int N, vector<vector<int>> &trust) {
   unordered_map<int, int> mp;
   int max = INT_MIN, index = -1;
   for (int i = 0; i < N; i++) {
-    if (scores[i] > max) max = scores[i], index = i;
+    if (scores[i] > max)
+      max = scores[i], index = i;
     mp[scores[i]]++;
   }
 
-  if (index == -1 || mp[max] != 1 || scores[index] != N - 1) return -1;
+  if (index == -1 || mp[max] != 1 || scores[index] != N - 1)
+    return -1;
   return index + 1;
 }
 

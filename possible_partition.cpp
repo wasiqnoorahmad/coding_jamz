@@ -31,7 +31,7 @@ Output: false
 #include <bits/stdc++.h>
 using namespace std;
 
-bool bfs(int node, vector<vector<int>>& graph, vector<int>& color) {
+bool bfs(int node, vector<vector<int>> &graph, vector<int> &color) {
   queue<int> q;
   color[node] = 1;
   q.push(node);
@@ -53,7 +53,7 @@ bool bfs(int node, vector<vector<int>>& graph, vector<int>& color) {
   return true;
 }
 
-bool possible_bipartition(int N, vector<vector<int>>& dislikes) {
+bool possible_bipartition(int N, vector<vector<int>> &dislikes) {
   // Build a Graph
   vector<vector<int>> graph(N + 1);
   vector<int> color(N + 1, 0);
@@ -65,12 +65,13 @@ bool possible_bipartition(int N, vector<vector<int>>& dislikes) {
   }
 
   for (int i = 1; i <= N; i++) {
-    if (!color[i] && !bfs(i, graph, color)) return false;
+    if (!color[i] && !bfs(i, graph, color))
+      return false;
   }
   return true;
 }
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
   // int n = 4;
   // vector<vector<int>> dislikes = {{1, 2}, {1, 3}, {2, 4}};
 

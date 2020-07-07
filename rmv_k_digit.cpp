@@ -22,11 +22,13 @@ void rec_remove_K_digits(string num, int k, string &res) {
   }
 
   int len = num.length();
-  if (k >= len) return;
+  if (k >= len)
+    return;
 
   int mi = 0;
   for (int i = 1; i <= k; i++)
-    if (num[i] < num[mi]) mi = i;
+    if (num[i] < num[mi])
+      mi = i;
 
   res.push_back(num[mi]);
 
@@ -40,10 +42,12 @@ string remove_K_digits(string num, int k) {
 
   /* Remove starting zeros */
   int i = 0;
-  while (i < res.length() && res[i] == '0') i++;
+  while (i < res.length() && res[i] == '0')
+    i++;
 
   res = res.substr(i);
-  if (res.length() == 0) res = "0";
+  if (res.length() == 0)
+    res = "0";
   return res;
 }
 

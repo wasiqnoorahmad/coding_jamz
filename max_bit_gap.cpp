@@ -17,14 +17,16 @@ Output: 2
 using namespace std;
 
 int bit_gap(int number) {
-  if (number == 0 || (number & (number - 1)) == 0) return -1;
+  if (number == 0 || (number & (number - 1)) == 0)
+    return -1;
 
   int zeros = 0, max_gap = 0;
   while (number) {
     if (number & 1) {
       number >>= 1, zeros = 0;
       // Walk until next 1, and count zeros
-      while (number && (number & 1) == 0) number >>= 1, zeros++;
+      while (number && (number & 1) == 0)
+        number >>= 1, zeros++;
 
     } else {
       number >>= 1;

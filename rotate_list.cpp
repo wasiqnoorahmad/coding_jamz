@@ -15,7 +15,8 @@ void insert(ListNode *head, int val) {
   }
 
   ListNode *walk = head;
-  while (walk->next != NULL) walk = walk->next;
+  while (walk->next != NULL)
+    walk = walk->next;
   walk->next = new ListNode(val);
 }
 
@@ -29,7 +30,8 @@ void display(ListNode *head) {
 }
 
 ListNode *rotate(ListNode *head, int k) {
-  if (head == NULL || head->next == NULL || k == 0) return head;
+  if (head == NULL || head->next == NULL || k == 0)
+    return head;
 
   /* Make a circular list first */
   int size = 1;
@@ -38,7 +40,8 @@ ListNode *rotate(ListNode *head, int k) {
     last = last->next;
     size++;
   }
-  if (k % size == 0) return head;
+  if (k % size == 0)
+    return head;
   last->next = head;
 
   ListNode *k_node = head;

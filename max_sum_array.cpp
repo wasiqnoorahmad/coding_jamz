@@ -54,7 +54,7 @@ int main(int argc, char const *argv[]) {
   // std::vector<int> A = {-2, -3, 4, -1, -2, 1, -5, 5, 5};
   // std::vector<int> A = {-1, 2, 3, -4, 5, 10};
 
-  std::vector<int> A = {1, 3, -1};  // 1,2
+  std::vector<int> A = {1, 3, -1}; // 1,2
   // std::vector<int> A = {-1};                                      //
   // null,null std::vector<int> A = {-1, -1, 1, -1, 1, -1, 1, 1, 1, -1};
   // // 3,9 std::vector<int> A = {1, -1, -1}; // 1,1

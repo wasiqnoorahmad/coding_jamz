@@ -11,7 +11,7 @@ Output: 2
 #include <bits/stdc++.h>
 using namespace std;
 
-int single_non_duplicate(vector<int>& nums) {
+int single_non_duplicate(vector<int> &nums) {
   int start = 0, end = nums.size() - 1, mid = (end + start) / 2;
 
   while (start < end) {
@@ -29,7 +29,7 @@ int single_non_duplicate(vector<int>& nums) {
   return nums[start];
 }
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
   // vector<int> nums = {1, 1, 2, 3, 3, 4, 4, 8, 8};
   // vector<int> nums = {1, 1, 2, 2, 3, 3, 4, 8, 8};
   // vector<int> nums = {1, 1, 2};

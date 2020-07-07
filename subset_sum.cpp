@@ -8,16 +8,19 @@ using namespace std;
 bool partition(vector<int> &nums) {
   int total = accumulate(nums.begin(), nums.end(), 0);
   /* If sum is odd, subsets can never have same sum */
-  if (total % 2 == 1) return false;
+  if (total % 2 == 1)
+    return false;
 
   total /= 2;
 
   bool dp[nums.size() + 1][total + 1];
 
   /* If there is zero item, no sum can be achieved */
-  for (int t = 0; t <= total; t++) dp[0][t] = false;
+  for (int t = 0; t <= total; t++)
+    dp[0][t] = false;
   /* If total sum is zero, it can be always achieved with empty set */
-  for (int i = 0; i <= nums.size(); i++) dp[i][0] = true;
+  for (int i = 0; i <= nums.size(); i++)
+    dp[i][0] = true;
 
   /* Build up till all sums */
   for (int i = 1; i <= nums.size(); i++) {

@@ -11,6 +11,7 @@ int main(int argc, char const *argv[]) {
 
   int mid = (first + second + third) - (max + min);
 
-  std::cout << "Max: " << max << " Mid: " << mid << " Min: " << min << std::endl;
+  std::cout << "Max: " << max << " Mid: " << mid << " Min: " << min
+            << std::endl;
   return 0;
 }

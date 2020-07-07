@@ -6,7 +6,8 @@
 typedef std::vector<std::vector<char>> board_t;
 
 bool dfs(board_t &board, int row, int col, int walk, std::string word) {
-  if (walk == word.length()) return true;
+  if (walk == word.length())
+    return true;
 
   if (row < 0 || row > board.size() - 1 || col < 0 || col > board[0].size() - 1)
     return false;

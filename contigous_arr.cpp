@@ -19,7 +19,7 @@ Note: The length of the given binary array will not exceed 50,000.
 #include <bits/stdc++.h>
 using namespace std;
 
-int contigous_arr(vector<int>& nums) {
+int contigous_arr(vector<int> &nums) {
   unordered_map<int, int> m;
   int sum = 0, length = 0;
 
@@ -39,7 +39,7 @@ int contigous_arr(vector<int>& nums) {
   return length;
 }
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
   vector<int> nums = {0, 0, 1, 0, 0, 0, 1, 1};
   printf("%d\n", contigous_arr(nums));
   return 0;

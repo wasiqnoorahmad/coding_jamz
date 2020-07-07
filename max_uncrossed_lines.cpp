@@ -25,7 +25,7 @@ Output: 2
 #include <bits/stdc++.h>
 using namespace std;
 
-int max_uncrossed_lines(vector<int>& A, vector<int>& B) {
+int max_uncrossed_lines(vector<int> &A, vector<int> &B) {
   int dp[A.size() + 1][B.size() + 1];
 
   for (int i = 0; i <= A.size(); i++) {
@@ -42,7 +42,7 @@ int max_uncrossed_lines(vector<int>& A, vector<int>& B) {
   return dp[A.size()][B.size()];
 }
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
   vector<int> A = {2, 5, 1, 2, 5};
   vector<int> B = {10, 5, 2, 1, 5, 2};
   printf("Max Uncrossed Lines %d\n", max_uncrossed_lines(A, B));

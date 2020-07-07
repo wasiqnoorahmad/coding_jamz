@@ -1,16 +1,16 @@
+#include <iostream>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <iostream>
 
 struct Node {
   char data;
-  struct Node* next;
+  struct Node *next;
 };
 
-bool compareLists(struct Node* head1, struct Node* head2) {
-  struct Node* temp1 = head1;
-  struct Node* temp2 = head2;
+bool compareLists(struct Node *head1, struct Node *head2) {
+  struct Node *temp1 = head1;
+  struct Node *temp2 = head2;
 
   while (temp1 && temp2) {
     if (temp1->data == temp2->data) {
@@ -20,13 +20,14 @@ bool compareLists(struct Node* head1, struct Node* head2) {
       return 0;
   }
 
-  if (temp1 == NULL && temp2 == NULL) return 1;
+  if (temp1 == NULL && temp2 == NULL)
+    return 1;
 
   return 0;
 }
 
-void push(struct Node** head_ref, char new_data) {
-  struct Node* new_node = (struct Node*)malloc(sizeof(struct Node));
+void push(struct Node **head_ref, char new_data) {
+  struct Node *new_node = (struct Node *)malloc(sizeof(struct Node));
 
   new_node->data = new_data;
 
@@ -35,10 +36,10 @@ void push(struct Node** head_ref, char new_data) {
   (*head_ref) = new_node;
 }
 
-Node* reverse(struct Node* head) {
-  struct Node* prev = head;
-  struct Node* curr = head->next;
-  struct Node* next = NULL;
+Node *reverse(struct Node *head) {
+  struct Node *prev = head;
+  struct Node *curr = head->next;
+  struct Node *next = NULL;
 
   while (curr != NULL) {
     next = curr->next;
@@ -49,16 +50,16 @@ Node* reverse(struct Node* head) {
   return prev;
 }
 
-bool isPalindrome(struct Node* head) {
+bool isPalindrome(struct Node *head) {
   // Pseudo Code
   // Find Mid ...
   // Reverse list second half ...
   // Compare ...
 
-  struct Node* slow_ptr = head;
-  struct Node* fast_ptr = head;
-  struct Node* mid_ptr = head;
-  struct Node* rsvd_ptr = NULL;
+  struct Node *slow_ptr = head;
+  struct Node *fast_ptr = head;
+  struct Node *mid_ptr = head;
+  struct Node *rsvd_ptr = NULL;
 
   if (head != NULL && head->next != NULL) {
     // Find the mid node...
@@ -73,7 +74,7 @@ bool isPalindrome(struct Node* head) {
       mid_ptr = mid_ptr->next;
     }
 
-    struct Node* tail = reverse(mid_ptr);
+    struct Node *tail = reverse(mid_ptr);
 
     // std::cout << "Tail ptr: " << tail->data << std::endl;
     // std::cout << "Mid ptr: " << mid_ptr->data << std::endl;
@@ -100,7 +101,7 @@ bool isPalindrome(struct Node* head) {
   return true;
 }
 
-void printList(struct Node* ptr) {
+void printList(struct Node *ptr) {
   while (ptr != NULL) {
     printf("%c->", ptr->data);
     ptr = ptr->next;
@@ -109,7 +110,7 @@ void printList(struct Node* ptr) {
 }
 
 int main() {
-  struct Node* head = NULL;
+  struct Node *head = NULL;
   char str[] = "8648";
   int i;
 

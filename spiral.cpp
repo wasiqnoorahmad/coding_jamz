@@ -8,8 +8,8 @@
 
 typedef std::vector<std::vector<int>> grid_t;
 
-int walk_row(grid_t& matrix, int row, int c_start, int c_end,
-             std::vector<int>& result) {
+int walk_row(grid_t &matrix, int row, int c_start, int c_end,
+             std::vector<int> &result) {
   /* If only one cell */
   if (c_start == c_end) {
     result.push_back(matrix[row][c_start]);
@@ -28,8 +28,8 @@ int walk_row(grid_t& matrix, int row, int c_start, int c_end,
   return steps + 1;
 }
 
-int walk_col(grid_t& matrix, int col, int r_start, int r_end,
-             std::vector<int>& result) {
+int walk_col(grid_t &matrix, int col, int r_start, int r_end,
+             std::vector<int> &result) {
   /* If only one cell */
   if (r_start == r_end) {
     result.push_back(matrix[r_start][col]);
@@ -48,13 +48,15 @@ int walk_col(grid_t& matrix, int col, int r_start, int r_end,
   return steps + 1;
 }
 
-std::vector<int> spiral(grid_t& matrix) {
+std::vector<int> spiral(grid_t &matrix) {
   std::vector<int> result;
 
   int nb_rows = matrix.size();
-  if (nb_rows == 0) return result;
+  if (nb_rows == 0)
+    return result;
   int nb_cols = matrix[0].size();
-  if (nb_cols == 0) return result;
+  if (nb_cols == 0)
+    return result;
 
   /* Here goes the code */
   int s_row = 0, e_row = nb_rows - 1, s_col = 0, e_col = nb_cols - 1;
@@ -85,7 +87,7 @@ std::vector<int> spiral(grid_t& matrix) {
   return result;
 }
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
   grid_t matrix = {
       {1, 2, 3, 4},
       {5, 6, 7, 8},

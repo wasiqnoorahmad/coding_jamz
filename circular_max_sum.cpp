@@ -3,7 +3,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int kadane(vector<int>& nums) {
+int kadane(vector<int> &nums) {
   int curr_sum = nums[0], max_so_far = curr_sum;
 
   for (int i = 1; i < nums.size(); i++) {
@@ -13,7 +13,7 @@ int kadane(vector<int>& nums) {
   return max_so_far;
 }
 
-int circular_max_sum(vector<int>& nums) {
+int circular_max_sum(vector<int> &nums) {
   int max_sum = kadane(nums), total = 0;
 
   for (int i = 0; i < nums.size(); i++) {
@@ -24,7 +24,7 @@ int circular_max_sum(vector<int>& nums) {
   return max(total + kadane(nums), max_sum);
 }
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
   vector<int> nums = {5, -3, 5};
   printf("Max sum is %d\n", circular_max_sum(nums));
   return 0;
