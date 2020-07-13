@@ -25,42 +25,40 @@ vector<int> largest_divisible_subset(vector<int> &nums) {
   int n = nums.size();
   if (n <= 1)
     return nums;
+
   sort(nums.begin(), nums.end());
+  /* div_count[i] stores the size of divisible subset ending at arr[i] */
+  vector<int> div_count(n, 1);
+  vector<int> prev(n, -1);
 
-  // vector<int> sizes(n, 1);
-  vector<int> sizes(n, 1);
-  vector<int> next_index(n, -1);
-  int max_len = 1, max_indx = 0;
+  int max_indx = 0;
 
-  for (int i = n - 1; i >= 0; i--) {
-    int j = i + 1, _max = 0, _indx = i;
-    while (j < n) {
-      if (nums[j] % nums[i] == 0 && sizes[j] > _max) {
-        _max = sizes[j], _indx = j;
-      }
-      j++;
-    }
+  for (int i = 1; i < n; i++) {
+    for (int j = 0; j < i; j++) {
 
-    if (_indx != i) {
-      sizes[i] += sizes[_indx];
-      next_index[i] = _indx;
-      if (_max + 1 > max_len) {
-        max_len = _max + 1, max_indx = i;
+      if (nums[i] % nums[j] == 0 && div_count[i] < div_count[j] + 1) {
+        div_count[i] = div_count[j] + 1;
+        prev[i] = j;
       }
     }
+
+    if (div_count[max_indx] < div_count[i])
+      max_indx = i;
   }
 
   vector<int> result;
-  int curr = max_indx;
-  while (curr >= 0) {
-    result.push_back(nums[curr]);
-    curr = next_index[curr];
+
+  int k = max_indx;
+  while (k >= 0) {
+    result.push_back(nums[k]);
+    k = prev[k];
   }
+
   return result;
 }
 
 int main(int argc, char const *argv[]) {
-  vector<int> nums = {1, 2, 3};
+  vector<int> nums = {1, 2, 17, 4};
   vector<int> ans = largest_divisible_subset(nums);
   p_vector(ans);
   return 0;
