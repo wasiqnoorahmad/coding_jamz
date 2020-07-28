@@ -15,6 +15,8 @@ int kadane(vector<int> &nums) {
 
 int circular_max_sum(vector<int> &nums) {
   int max_sum = kadane(nums), total = 0;
+  if(max_sum < 0)
+    return max_sum;
 
   for (int i = 0; i < nums.size(); i++) {
     total += nums[i];
