@@ -8,7 +8,7 @@ vector<int> nxt_permutation(vector<int> nums) {
   while (i > 0 && nums[i - 1] >= nums[i])
     i--;
 
-  cout << "i = " << i << endl;
+  // cout << "i = " << i << endl;
   if (i == 0) {
     reverse(nums.begin(), nums.end());
     return nums;
